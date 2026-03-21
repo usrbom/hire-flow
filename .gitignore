@@ -1,0 +1,28 @@
+.DS_Store
+
+# Private resume sources
+Knowledge/my-resumes/base/*
+!Knowledge/my-resumes/base/README.md
+!Knowledge/my-resumes/base/RESUME_INDEX.md
+
+# Private resume archives
+Knowledge/my-resumes/archive/*
+!Knowledge/my-resumes/archive/README.md
+
+# Private resume variants
+Knowledge/my-resumes/markdown-versions/*
+!Knowledge/my-resumes/markdown-versions/README.md
+Knowledge/my-resumes/pdf-versions/*
+!Knowledge/my-resumes/pdf-versions/README.md
+
+# Deprecated internal tailored path kept only as a placeholder
+Knowledge/my-resumes/tailored/*
+!Knowledge/my-resumes/tailored/README.md
+
+# Local tailored resume outputs
+tailored/*
+!tailored/README.md
+
+# Private reference materials
+Knowledge/reference-resumes/*
+!Knowledge/reference-resumes/README.md
