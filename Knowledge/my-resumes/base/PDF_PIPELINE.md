@@ -1,25 +1,25 @@
 # Resume PDF Pipeline
 
-This repository can generate a submit-ready PDF from a fixed-structure resume Markdown file.
+This repository can generate a submit-ready PDF from a generated resume `.docx` file using Microsoft Word.
 
 ## Source of truth
 
-- Content source: `resume-tailored.md` or another resume Markdown file that follows `PDF_EXPORT_SPEC.md`
-- Visual contract: `Knowledge/my-resumes/base/Tech_8.pdf`
-- Structure contract: `Knowledge/my-resumes/base/PDF_EXPORT_SPEC.md`
+- Content source for final PDF export: `resume-tailored.docx`
+- Shared fallback DOCX template: `Knowledge/my-resumes/base/template.docx`
+- Contributor-local override: `contributors/local-context/<name>.resume-template.local.docx`
 
 ## Generator
 
 Use:
 
 ```bash
-python3 scripts/render_resume_pdf.py <path-to-resume-markdown>
+python3 scripts/render_docx_pdf.py <path-to-resume-docx>
 ```
 
 Example:
 
 ```bash
-python3 scripts/render_resume_pdf.py tailored/Nasuni/MBA_Product_Marketing_Intern/resume-tailored.md
+python3 scripts/render_docx_pdf.py tailored/Nasuni/MBA_Product_Marketing_Intern/resume-tailored.docx
 ```
 
 This will generate:
@@ -31,9 +31,10 @@ tailored/Nasuni/MBA_Product_Marketing_Intern/resume-tailored.pdf
 ## Requirements
 
 - Python 3
-- Google Chrome or Chromium installed locally
+- Microsoft Word installed locally
+- macOS with `osascript` available
 
-The current renderer uses headless Chrome to print a fixed HTML layout to PDF.
+The current renderer uses Microsoft Word automation to export the `.docx` to PDF.
 
 ## For tailored applications
 
@@ -45,16 +46,37 @@ Standard expected files per completed application:
 - `resume-tailored.md`
 - `resume-tailored.pdf` when a submission PDF has been generated locally
 
-## Expected output behavior
-
-- one-page resume layout optimized for U.S. letter size
-- fixed section order
-- stable typography and spacing
-- predictable export from the shared Markdown schema
-
 ## Notes
 
-- The PDF is generated from the Markdown content, not copied from the original base PDF
-- Exact visual parity with the original PDF may still require CSS tuning over time
-- The renderer assumes the resume follows the shared section and line structure
-- If the Markdown breaks the shared contract, the renderer may fail or produce poor layout
+- The recommended path is `Markdown -> DOCX -> PDF`
+- The PDF is exported from Word so it can preserve the tuned DOCX layout more reliably than direct Markdown-to-PDF conversion
+- No direct Markdown-to-PDF path is used in the current workflow
+
+## Local pipeline test
+
+To test Word export against a contributor-local reference pair:
+
+```bash
+python3 scripts/test_docx_pdf_pipeline.py contributors/local-context/<name>.resume-template.local.docx
+```
+
+This expects a matching file:
+
+```text
+contributors/local-context/<name>.resume-template.expected.local.pdf
+```
+
+The test writes:
+
+```text
+contributors/local-context/<name>.resume-template.generated.local.pdf
+```
+
+and reports:
+
+- generated path
+- expected and generated file sizes
+- expected and generated page counts
+- expected and generated SHA1 values
+
+`byte_identical=false` does not necessarily mean the export is visually wrong, since PDF metadata may differ across exports.

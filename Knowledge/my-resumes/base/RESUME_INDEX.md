@@ -40,8 +40,9 @@ Tailoring always uses **one** chosen base Markdown file from `Knowledge/my-resum
   - courses: keep to 1 line maximum
   - rank bullets using this order: eligibility fit, job function fit, industry/company resonance, seniority fit, customer proximity, cross-functional relevance, outcome strength, readability, distinctiveness
 10. Save the tailored output to `tailored/<Company>/<Role>/resume-tailored.md` at the repository root.
-11. When submit-ready output is requested, generate `tailored/<Company>/<Role>/resume-tailored.pdf` from the Markdown using `scripts/render_resume_pdf.py`.
-12. After the first pass, ask the user whether they want a second pass with deeper edits to work-experience bullets.
+11. When Word output is requested, generate `tailored/<Company>/<Role>/resume-tailored.docx` using `scripts/render_resume_docx.py`.
+12. When submit-ready output is requested, generate `tailored/<Company>/<Role>/resume-tailored.pdf` from the `.docx` using `scripts/render_docx_pdf.py`.
+13. After the first pass, ask the user whether they want a second pass with deeper edits to work-experience bullets.
 
 ---
 
@@ -61,5 +62,6 @@ Tailoring always uses **one** chosen base Markdown file from `Knowledge/my-resum
   - `analysis.md`
   - `diff.md`
   - `resume-tailored.md`
-  - `resume-tailored.pdf` when generated locally for submission
+  - `resume-tailored.docx` when Word output is generated locally
+  - `resume-tailored.pdf` when exported locally for submission
   - `notes.md` (optional)

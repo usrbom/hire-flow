@@ -37,6 +37,20 @@ By default the generator writes a `.docx` into the same folder as the Markdown s
 tailored/<Company>/<Role>/resume-tailored.docx
 ```
 
+## Final PDF step
+
+After generating the `.docx`, export the final submission PDF with:
+
+```bash
+python3 scripts/render_docx_pdf.py tailored/<Company>/<Role>/resume-tailored.docx
+```
+
+This writes:
+
+```text
+tailored/<Company>/<Role>/resume-tailored.pdf
+```
+
 ## Contributor-local template workflow
 
 Each contributor can keep their own Word format by adding local-only files:

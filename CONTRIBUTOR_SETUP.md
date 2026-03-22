@@ -111,8 +111,9 @@ If no contributor-local resume index exists, the agent falls back to:
 Examples:
 
 - `Tailor: <paste job description>`
-- `RenderPDF: tailored/<Company>/<Role>/resume-tailored.md`
+- `RenderPDF: tailored/<Company>/<Role>/resume-tailored.docx`
 - `RenderDOCX: tailored/<Company>/<Role>/resume-tailored.md`
+- `TestPDF: contributors/local-context/<name>.resume-template.local.docx`
 
 If your local Word template exists, the agent should prefer it for DOCX generation and tuning.
 

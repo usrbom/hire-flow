@@ -17,6 +17,7 @@ Included:
 - workflow and process documentation
 - folder structure
 - placeholder files that preserve expected paths
+- local document-generation scripts
 
 Excluded:
 - personal base resumes
