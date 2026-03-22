@@ -23,6 +23,9 @@ Knowledge/my-resumes/tailored/*
 tailored/*
 !tailored/README.md
 
+# Contributor-local context files
+contributors/local-context/*.local.md
+
 # Private reference materials
 Knowledge/reference-resumes/*
 !Knowledge/reference-resumes/README.md
