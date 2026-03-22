@@ -4,9 +4,18 @@ This directory is for internship resume tailoring.
 
 ## Start Here
 
-- Read `base/RESUME_INDEX.md`
-- Use `base/Tech_8.md` as the canonical base resume
+- Read `contributors/local-context/RESUME_INDEX.local.md` if it exists, then read `base/RESUME_INDEX.md` (local wins on conflict; if no local file, only read `base/RESUME_INDEX.md`).
+- **Do not assume a single default file until you have compared options.** After you have the job description, inventory **`base/`** (see *Choosing the base resume* below), pick the best match, then read **only that** Markdown file for tailoring.
 - Treat `archive/old-variants/` as fallback reference only
+
+## Choosing the base resume
+
+- **When:** After the index files are read and the **job description** is available (from the user message or `tailored/.../jd.md`).
+- **Where:** `Knowledge/my-resumes/base/`
+- **What to consider:** Every **`.md`** file in that folder **except** `README.md` and `RESUME_INDEX.md`. Quickly compare each candidate to the JD: job title and level, required skills and stack, research vs product/engineering emphasis, data/ML vs general software, and which variant tells the strongest honest story for this posting.
+- **Choose:** One file. Use that file’s work-experience bullets and structure as the **sole** source for first-pass tailoring (reorder/trim/reframe per rules—no inventing roles).
+- **Document:** At the **top** of `analysis.md`, record **Base resume selected:** `<path>` and **Why:** one to three sentences. Then continue with F-1, graduate/MBA fit, and alignment as usual.
+- **Hints:** `RESUME_INDEX.local.md` may list usual variants or tie-breakers—apply them when fit is close or ambiguous.
 
 ## User Workflow
 
@@ -21,14 +30,15 @@ This directory is for internship resume tailoring.
   - preferred requirements
   - keywords
   - main themes for prioritizing bullets
+- **Select the best-matching base resume from `base/`** (see *Choosing the base resume*), then create outputs from that file
 - Create a folder at `tailored/<Company_Name>/<Role_Name>/` at the repository root
 - Save the pasted JD as `jd.md`
-- Save your extraction and prioritization logic as `analysis.md`
+- Save your extraction and prioritization logic as `analysis.md` (include base resume choice and rationale first)
 - Save the tailored resume as `resume-tailored.md` only if there is no material eligibility concern, or if the user explicitly asks to proceed despite the concern
 
 ## Resume Constraints
 
-- For work experience, only reorder existing bullets from `base/Tech_8.md` based on JD importance in the first pass
+- For work experience, only reorder existing bullets from the **selected** base resume file based on JD importance in the first pass
 - Trim lower-priority work-experience bullets in the first pass by removing bullets that are not important for the JD
 - Do not invent experience
 - Do not change the content of work-experience bullets in the first pass
@@ -43,6 +53,7 @@ This directory is for internship resume tailoring.
 - Keep `Skills` to no more than 2 lines
 - Keep `Courses` to 1 line
 - In `analysis.md`, start with:
+  - **Base resume selected** (path) and **rationale** for choosing it over other files in `base/`
   - F-1 visa applicability assessment
   - graduate/MBA eligibility assessment
   - current alignment score out of 10
@@ -77,10 +88,13 @@ Additional guidance:
 
 When working on a new application, read files in this order:
 
-1. `base/RESUME_INDEX.md`
-2. `base/Tech_8.md`
-3. `tailored/<Company_Name>/<Role_Name>/jd.md` if it already exists
-4. `tailored/<Company_Name>/<Role_Name>/analysis.md` if it already exists
+1. `contributors/local-context/RESUME_INDEX.local.md` if it exists
+2. `base/RESUME_INDEX.md`
+3. **Inventory** all resume candidates in `base/` (all `.md` except `README.md` and `RESUME_INDEX.md`); **with the JD in mind, pick one** and read it in full
+4. `tailored/<Company_Name>/<Role_Name>/jd.md` if it already exists
+5. `tailored/<Company_Name>/<Role_Name>/analysis.md` if it already exists
+
+If you are continuing work on an existing `tailored/...` folder and `analysis.md` already states which base was used, you may re-read that same base file unless the user asks to switch variants.
 
 ## Goal
 

@@ -29,10 +29,16 @@ Examples:
 
 These files are ignored by Git and should not be committed.
 
+### Resume workflow (local index)
+
+- **Optional:** `RESUME_INDEX.local.md` — read **first** when it exists, then read `Knowledge/my-resumes/base/RESUME_INDEX.md`. Where this file conflicts with the shared index, follow the local file. If this file is missing, use only the shared `RESUME_INDEX.md`.
+- Tailoring still requires **JD-aware choice** among all resume `.md` files in `Knowledge/my-resumes/base/`; the local index may list usual variants and tie-breakers only.
+
 ## How the agent should use this folder
 
-- Shared workflow rules live in `AGENTS.md`.
-- Personal context should be read from the relevant `*.local.md` file when a task requires personalized recommendations.
+- Shared workflow rules live in `AGENTS.md` and `Knowledge/my-resumes/base/RESUME_INDEX.md`.
+- For resume tailoring, read `RESUME_INDEX.local.md` first if it exists, then the shared resume index (merge: local wins on conflict).
+- Personal context should be read from the relevant `<name>.local.md` file when a task requires personalized recommendations.
 - If no local context file is available, the agent should continue with the shared workflow and ask for missing personal context only when needed.
 
 ## Recommended structure
