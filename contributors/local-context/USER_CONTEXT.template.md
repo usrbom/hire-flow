@@ -36,9 +36,11 @@ Suggested file name:
 ## Resume Defaults
 
 - Preferred base resume:
+- Preferred DOCX template:
 - Alternate resume variants:
 - Sections or stories to emphasize:
 - Sections or stories to avoid:
+- DOCX output notes:
 
 ## Job Search Constraints
 

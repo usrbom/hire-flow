@@ -27,19 +27,21 @@ Tailoring always uses **one** chosen base Markdown file from `Knowledge/my-resum
 4. Save the pasted job description under `tailored/<Company>/<Role>/jd.md` at the repository root.
 5. First assess F-1 visa applicability and whether the role appears open to graduate or MBA candidates.
 6. Extract role requirements, keywords, alignment score, bullet removals, and resume priorities into `tailored/<Company>/<Role>/analysis.md` at the repository root.
-7. If there is a material eligibility concern, pause and ask the user whether to proceed.
-8. First-pass tailoring rules:
-   - work experience: reorder bullets and remove low-priority bullets
-   - do not change work-experience bullet wording
-   - before trimming, preserve bullets with strong company or industry resonance
-   - additional: reframe the competition item if useful and reorder items by JD importance
-   - reorder skills internally so the most relevant skills appear first
-   - reorder courses internally so the most relevant courses appear first
-   - skills: keep to 2 lines maximum
-   - courses: keep to 1 line maximum
-   - rank bullets using this order: eligibility fit, job function fit, industry/company resonance, seniority fit, customer proximity, cross-functional relevance, outcome strength, readability, distinctiveness
-9. Save the tailored output to `tailored/<Company>/<Role>/resume-tailored.md` at the repository root.
-10. After the first pass, ask the user whether they want a second pass with deeper edits to work-experience bullets.
+7. Save `tailored/<Company>/<Role>/diff.md` describing the differences between the selected base resume and the tailored resume, including why each change improves JD fit.
+8. If there is a material eligibility concern, pause and ask the user whether to proceed.
+9. First-pass tailoring rules:
+  - work experience: reorder bullets and remove low-priority bullets
+  - do not change work-experience bullet wording
+  - before trimming, preserve bullets with strong company or industry resonance
+  - additional: reframe the competition item if useful and reorder items by JD importance
+  - reorder skills internally so the most relevant skills appear first
+  - reorder courses internally so the most relevant courses appear first
+  - skills: keep to 2 lines maximum
+  - courses: keep to 1 line maximum
+  - rank bullets using this order: eligibility fit, job function fit, industry/company resonance, seniority fit, customer proximity, cross-functional relevance, outcome strength, readability, distinctiveness
+10. Save the tailored output to `tailored/<Company>/<Role>/resume-tailored.md` at the repository root.
+11. When submit-ready output is requested, generate `tailored/<Company>/<Role>/resume-tailored.pdf` from the Markdown using `scripts/render_resume_pdf.py`.
+12. After the first pass, ask the user whether they want a second pass with deeper edits to work-experience bullets.
 
 ---
 
@@ -57,5 +59,7 @@ Tailoring always uses **one** chosen base Markdown file from `Knowledge/my-resum
 - Required files per role:
   - `jd.md`
   - `analysis.md`
+  - `diff.md`
   - `resume-tailored.md`
+  - `resume-tailored.pdf` when generated locally for submission
   - `notes.md` (optional)

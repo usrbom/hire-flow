@@ -34,7 +34,11 @@ This directory is for internship resume tailoring.
 - Create a folder at `tailored/<Company_Name>/<Role_Name>/` at the repository root
 - Save the pasted JD as `jd.md`
 - Save your extraction and prioritization logic as `analysis.md` (include base resume choice and rationale first)
+- Save a change log as `diff.md` that compares the selected base resume against the tailored resume and explains why each change improves fit for the JD
 - Save the tailored resume as `resume-tailored.md` only if there is no material eligibility concern, or if the user explicitly asks to proceed despite the concern
+- After creating `resume-tailored.md`, generate `resume-tailored.pdf` using the local PDF pipeline in `base/PDF_PIPELINE.md` whenever submit-ready output is requested
+- When Word output is requested, generate `resume-tailored.docx` using `scripts/render_resume_docx.py` and prefer a contributor-specific local template over `base/template.docx` when one exists
+- Keep `resume-tailored.md` compliant with `base/PDF_EXPORT_SPEC.md` so it can be rendered into a fixed-structure PDF later
 
 ## Resume Constraints
 
@@ -45,6 +49,7 @@ This directory is for internship resume tailoring.
 - Before removing bullets, check for domain or industry alignment signals that may be uniquely valuable even if they are not the most direct functional match
 - Preserve distinctive bullets that create strong industry resonance for the target company or user story, such as healthcare, security, AI, or developer-workflow alignment
 - Produce the final tailored resume in Markdown
+- Preserve a fixed section order and export-safe structure that matches `base/PDF_EXPORT_SPEC.md`
 - In the `Additional` section:
   - reframe the competition item as needed to better match the JD
   - reorder items by JD importance
@@ -52,6 +57,7 @@ This directory is for internship resume tailoring.
   - reorder courses internally by JD relevance so the most relevant courses appear first
 - Keep `Skills` to no more than 2 lines
 - Keep `Courses` to 1 line
+- Do not introduce free-form sections or formatting that would break fixed-template PDF export
 - In `analysis.md`, start with:
   - **Base resume selected** (path) and **rationale** for choosing it over other files in `base/`
   - F-1 visa applicability assessment
@@ -59,6 +65,12 @@ This directory is for internship resume tailoring.
   - current alignment score out of 10
 - In `analysis.md`, explicitly suggest bullets that should be deprioritized or removed for the role
 - In `analysis.md`, explicitly call out any domain-aligned bullets that should be preserved because they strengthen company or industry fit
+- In `diff.md`, summarize:
+  - bullets moved up and why
+  - bullets removed or trimmed and why
+  - reordered skills, courses, or additional items and why
+  - any reframed non-work-experience items and why
+  - any important JD themes that became more visible after tailoring
 - If the JD appears incompatible with the user's profile, pause after the analysis and ask whether to proceed with tailoring
 - After generating the first tailored resume, ask the user whether they want a second pass that modifies work-experience bullets further by removing bullets or changing language
 

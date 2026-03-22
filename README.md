@@ -42,3 +42,9 @@ If multiple people contribute to this repo:
 - preserve the existing folder structure
 - do not commit personal resume files or generated application folders
 - use placeholder `README.md` files to document any ignored directories
+
+## Contributor setup
+
+For local contributor onboarding, private context setup, and personal Word-template setup, read:
+
+- `CONTRIBUTOR_SETUP.md`

@@ -25,6 +25,7 @@ tailored/*
 
 # Contributor-local context files
 contributors/local-context/*.local.md
+contributors/local-context/*.local.docx
 
 # Private reference materials
 Knowledge/reference-resumes/*
