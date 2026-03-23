@@ -85,6 +85,7 @@ Use this file for:
 - metric/source notes
 - safe phrasing boundaries
 - adjacent real skills that may support future tailoring
+- selective micro-rewrites that align retained bullets more closely to a JD without overclaiming
 
 ### 5. Bullet style guide
 
@@ -99,6 +100,7 @@ Use this for:
 - semicolon usage
 - metric placement
 - tone and readability rules
+- guiding the selective micro-rewrite pass after first-pass reordering and trimming
 
 ### 6. DOCX formatting notes
 
@@ -115,6 +117,7 @@ Examples:
 - hyperlink display and target rules
 - section spacing expectations
 - single-page requirement
+- how much bottom white space is acceptable before the resume should be judged too sparse and selectively re-expanded
 
 ## Contributor-specific PDF naming
 
