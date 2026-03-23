@@ -8,6 +8,7 @@ This repository supports generating resume `.docx` files from fixed-structure Ma
 - Shared fallback template: `Knowledge/my-resumes/base/template.docx`
 - Contributor-local override: `contributors/local-context/<name>.resume-template.local.docx`
 - Optional contributor-local notes: `contributors/local-context/<name>.docx-format.local.md`
+- Resume length target: one page by default
 
 ## Generator
 
@@ -78,3 +79,8 @@ When generated DOCX output does not match the contributor template:
 2. Identify mismatches in paragraph structure, tabs, numbering, spacing, font sizes, hyperlink styling, and page-length behavior.
 3. Update the generator to clone or mimic the correct template paragraph structures.
 4. Regenerate and iterate until the layout matches closely enough for submission.
+
+## Shared formatting constraints
+
+- Final tailored resume outputs should remain one page unless the user explicitly asks otherwise.
+- If a JD-aligned short descriptor is added next to `SERVICENOW`, keep it short enough that the right-side location such as `Hyderabad, India` does not wrap to the next line.

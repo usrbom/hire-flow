@@ -8,6 +8,8 @@ Keep the shared repository public-safe while allowing each contributor to use th
 
 - career context
 - resume preferences
+- story bank
+- bullet style guide
 - Word resume template
 - local formatting notes
 
@@ -71,7 +73,35 @@ This should be a `.docx` version of your preferred resume format.
 
 The agent can use this file as the formatting reference for generated Word resumes.
 
-### 4. DOCX formatting notes
+### 4. Story bank
+
+Create:
+
+- `contributors/local-context/<name>.story-bank.local.md`
+
+Use this file for:
+
+- expanded bullet facts
+- exact ownership details
+- metric/source notes
+- safe phrasing boundaries
+- adjacent real skills that may support future tailoring
+
+### 5. Bullet style guide
+
+Create a local-only Markdown guide if you want the agent to follow a specific bullet style, for example:
+
+- `contributors/local-context/anderson-style-guide.local.md`
+
+Use this for:
+
+- preferred bullet rhythm
+- action verb preferences
+- semicolon usage
+- metric placement
+- tone and readability rules
+
+### 6. DOCX formatting notes
 
 Create:
 
@@ -123,9 +153,11 @@ If no contributor-local resume index exists, the agent falls back to:
 2. Read `AGENTS.md`.
 3. Copy `contributors/local-context/USER_CONTEXT.template.md` into `contributors/local-context/<name>.local.md`.
 4. Fill in your personal context.
-5. If you have a preferred Word resume format, add `contributors/local-context/<name>.resume-template.local.docx`.
-6. If needed, add `contributors/local-context/<name>.docx-format.local.md`.
-7. Keep all local files uncommitted.
+5. If you have a preferred story bank, add `contributors/local-context/<name>.story-bank.local.md`.
+6. If you want a specific bullet-writing style, add a local style guide such as `contributors/local-context/anderson-style-guide.local.md`.
+7. If you have a preferred Word resume format, add `contributors/local-context/<name>.resume-template.local.docx`.
+8. If needed, add `contributors/local-context/<name>.docx-format.local.md`.
+9. Keep all local files uncommitted.
 
 ## How to ask the agent for help
 
@@ -145,5 +177,7 @@ Do not commit:
 - personal resumes
 - tailored application folders
 - local context files
+- local story banks
+- local style guides
 - local Word templates
 - local DOCX formatting notes
