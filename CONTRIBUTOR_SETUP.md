@@ -20,7 +20,6 @@ These files are part of the shared repo workflow:
 - `AGENTS.md`
 - `Knowledge/my-resumes/AGENTS.md`
 - `Knowledge/my-resumes/base/RESUME_INDEX.md`
-- `Knowledge/my-resumes/base/PDF_EXPORT_SPEC.md`
 - `Knowledge/my-resumes/base/PDF_PIPELINE.md`
 - `Knowledge/my-resumes/base/DOCX_PIPELINE.md`
 

@@ -26,6 +26,10 @@ tailored/*
 # Contributor-local context files
 contributors/local-context/*.local.md
 contributors/local-context/*.local.docx
+contributors/local-context/*.generated.local.pdf
+contributors/local-context/*.expected.local.pdf
+contributors/local-context/*.anderson-style.local.*
+contributors/local-context/*style-guide.local.md
 
 # Private reference materials
 Knowledge/reference-resumes/*

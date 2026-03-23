@@ -22,20 +22,9 @@ You are a productivity assistant for goals and tasks in this workspace.
 
 ## Resume workflow
 
-- For resume tailoring and job-description analysis tasks, first read `Knowledge/my-resumes/AGENTS.md` (resume index order: `contributors/local-context/RESUME_INDEX.local.md` if it exists, then `Knowledge/my-resumes/base/RESUME_INDEX.md`; local wins on conflict).
-- **Base resume:** With the JD in hand, inspect `Knowledge/my-resumes/base/` (Markdown files except `README.md` and `RESUME_INDEX.md`), **choose the best-matching file for that posting**, and tailor from that file only. Document the choice in `analysis.md`. If only one resume exists or indices specify a clear fallback, use that. Shared default name when applicable: `Knowledge/my-resumes/base/Tech_8.md`. Contributor `*.local.md` may add preferences—explicit user instruction in chat wins.
-- For each tailored application, also create `review-loop.md` and `diff.md` alongside `jd.md`, `analysis.md`, and `resume-tailored.md`.
-- When available and relevant, use contributor-local `*.story-bank.local.md` and Anderson-style local bullet guides to support truthful, higher-quality tailoring.
-- Resume outputs should stay to one page unless the user explicitly asks otherwise.
-- For DOCX generation and template matching, prefer a contributor-specific local Word template when one exists. Otherwise fall back to `Knowledge/my-resumes/base/template.docx`.
-- In resume analysis, check early whether the role appears compatible with an international student on F-1 visa status and whether the posting is open to graduate or MBA candidates.
-- If the JD shows a material eligibility concern, state it at the start of the analysis and pause to ask the user whether to proceed before generating a tailored resume.
-- In the first tailoring pass, prefer reordering and trimming work-experience bullets for readability instead of rewriting them.
-- Resume tailoring should use a two-round review loop by default:
-  - `Candidate Strategist` proposes the strongest honest framing
-  - `HR Screener` critiques for recruiter/ATS fit
-  - `Truth Guard` blocks unsupported or inflated claims
-  - revise once, then run a second lighter review round
+- For resume tailoring and job-description analysis tasks, first read `Knowledge/my-resumes/AGENTS.md`.
+- Use `contributors/local-context/RESUME_INDEX.local.md` first when it exists, then `Knowledge/my-resumes/base/RESUME_INDEX.md`.
+- Keep root-level instructions thin; the resume-specific workflow should live in `Knowledge/my-resumes/AGENTS.md`.
 
 ## Command shorthand
 

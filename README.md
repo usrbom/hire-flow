@@ -31,7 +31,7 @@ Excluded:
 - `Knowledge/my-resumes/AGENTS.md`: resume-tailoring workflow
 - `Knowledge/my-resumes/base/`: local-only base resumes and index
 - `tailored/<Company>/<Role>/`: local-only tailored application outputs
-- `Tasks/`: general task tracking
+- `Tasks/`: local task capture and working to-do items
 
 `tailored/` at the repository root is the only canonical output location for tailored applications.
 
