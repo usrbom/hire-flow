@@ -105,14 +105,20 @@ Use this default workflow unless the user explicitly asks for a lighter pass:
 
 - use this only when the resume appears meaningfully underfilled and adding relevant content would improve overall quality
 - do not try to fill all available white space
-- make a judgment call:
+- treat this as an iterative judgment loop, not a one-shot add-back
+- make a judgment call after each iteration:
   - if remaining white space is small, leave the resume as-is
-  - if remaining white space is clearly excessive, add back or slightly expand the highest-value supported content
+  - if remaining white space is clearly excessive, add back or slightly expand the highest-value supported content, then re-evaluate again
 - prefer quality-improving additions in this order:
   - add back one strong experience bullet that improves JD fit
   - slightly expand a retained experience bullet where supported and useful
   - add or expand a high-value `Additional` item only if experience content is already strong
 - never add filler just to consume space
+- stop the loop when any of the following becomes true:
+  - the page now looks balanced
+  - the next addition would weaken focus or role fit
+  - the next addition would create truth or readability risk
+  - the page is becoming tight enough that further additions are not clearly worth it
 - any re-added or expanded content must still pass truth-checking and page-fit validation
 
 ### Final Review
@@ -190,6 +196,14 @@ Use this default workflow unless the user explicitly asks for a lighter pass:
   - `Pass 2: Selective Micro-Rewrite`
   - `Pass 3: Truth + Fit Validation`
   - `Final Review`
+- End `review-loop.md` with a required `Improvement Opportunities` section.
+- In `Improvement Opportunities`:
+  - include only the highest-value remaining improvements, usually 3 to 6 items
+  - explain what is still underused, imperfect, or missing for the JD
+  - note why it matters for this role
+  - state whether it can be fixed now, later, or only with user confirmation
+  - when suggesting a language improvement, include a concrete copy-paste example of how the bullet could be rewritten
+  - when suggesting an unsupported tool or platform claim, do not provide copy-paste resume language unless the user confirms the claim
 - In `diff.md`, summarize:
   - bullets moved up and why
   - bullets removed or trimmed and why
@@ -227,6 +241,7 @@ Additional guidance:
   - first add back the highest-value removed experience bullet, if one materially improves fit
   - then consider modest expansion of retained bullets
   - then consider one stronger `Additional` item if it improves role fit
+  - after each addition, re-evaluate whether another iteration is still quality-improving
   - stop once the resume looks balanced; do not optimize for zero white space
 
 ## File Priority
