@@ -22,8 +22,9 @@ on run
   tell application "Microsoft Word"
     activate
     open inputPath
-    save as active document file name outputPath file format format PDF
-    close active document saving no
+    set docRef to active document
+    save as docRef file name outputPath file format format PDF
+    close docRef saving no
   end tell
 end run
 '''
