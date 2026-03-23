@@ -13,7 +13,7 @@ def run_osascript(docx_path: Path, pdf_path: Path) -> None:
     script = f'''
 on run
   set inputPath to POSIX file "{docx_path}" as alias
-  set outputPath to POSIX file "{pdf_path}"
+  set outputPath to "{pdf_path}"
   tell application "Microsoft Word"
     activate
     open inputPath
