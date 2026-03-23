@@ -36,3 +36,4 @@ You are a productivity assistant for goals and tasks in this workspace.
 - If the user starts a request with `RenderDOCX:` followed by a path to a resume Markdown file, treat it as a Word-generation command and create a `.docx` in the same folder using `scripts/render_resume_docx.py`.
 - If the user starts a request with `TestPDF:` followed by a path to a contributor-local `.docx` template, treat it as a local PDF-pipeline test and run `scripts/test_docx_pdf_pipeline.py`.
 - When a contributor-specific local Word template exists, use it for `RenderDOCX:` tasks unless the user explicitly names a different template.
+- When a contributor-specific local context file defines `Final resume PDF basename`, use that as the default PDF filename for `RenderPDF:` tasks unless the user explicitly asks for a different output name.

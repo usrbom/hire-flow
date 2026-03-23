@@ -37,7 +37,7 @@ This directory is for internship resume tailoring.
 - Save a change log as `diff.md` that compares the selected base resume against the tailored resume and explains why each change improves fit for the JD
 - Save the tailored resume as `resume-tailored.md` only if there is no material eligibility concern, or if the user explicitly asks to proceed despite the concern
 - When Word output is requested, generate `resume-tailored.docx` using `scripts/render_resume_docx.py` and prefer a contributor-specific local template over `base/template.docx` when one exists
-- When submit-ready PDF output is requested, export `resume-tailored.docx` to `resume-tailored.pdf` using the Word PDF pipeline in `base/PDF_PIPELINE.md`
+- When submit-ready PDF output is requested, export `resume-tailored.docx` using the Word PDF pipeline in `base/PDF_PIPELINE.md`. If the contributor's local context defines `Final resume PDF basename`, use that filename by default in the same tailored folder.
 
 ## Resume Constraints
 

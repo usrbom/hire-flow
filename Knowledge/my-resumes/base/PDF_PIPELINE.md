@@ -25,7 +25,25 @@ python3 scripts/render_docx_pdf.py tailored/Nasuni/MBA_Product_Marketing_Intern/
 This will generate:
 
 ```text
-tailored/Nasuni/MBA_Product_Marketing_Intern/resume-tailored.pdf
+tailored/Nasuni/MBA_Product_Marketing_Intern/<contributor_pdf_basename>.pdf
+```
+
+If `contributors/local-context/<name>.local.md` contains:
+
+```text
+- Final resume PDF basename: utkarsh_rawat_resume
+```
+
+then the default output becomes:
+
+```text
+tailored/Nasuni/MBA_Product_Marketing_Intern/utkarsh_rawat_resume.pdf
+```
+
+You can also force a specific contributor rule:
+
+```bash
+python3 scripts/render_docx_pdf.py tailored/Nasuni/MBA_Product_Marketing_Intern/resume-tailored.docx --contributor utkarsh
 ```
 
 ## Requirements
@@ -45,6 +63,8 @@ Standard expected files per completed application:
 - `diff.md`
 - `resume-tailored.md`
 - `resume-tailored.pdf` when a submission PDF has been generated locally
+
+The exact PDF filename may be contributor-specific when a local context file defines a final resume PDF basename.
 
 ## Notes
 

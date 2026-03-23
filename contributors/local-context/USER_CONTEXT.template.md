@@ -36,6 +36,7 @@ Suggested file name:
 ## Resume Defaults
 
 - Preferred base resume:
+- Final resume PDF basename:
 - Preferred DOCX template:
 - Alternate resume variants:
 - Sections or stories to emphasize:

@@ -13,6 +13,7 @@ Examples:
 - work authorization or visa status
 - location preferences
 - preferred base resume
+- preferred final resume PDF basename
 - preferred Word template
 - application constraints
 
@@ -77,5 +78,15 @@ Useful notes include:
 - hyperlink display and target rules
 - section spacing rules
 - whether the resume must stay on one page
+
+For contributor-specific final PDF naming, add this field to `<name>.local.md`:
+
+- `Final resume PDF basename: <your_preferred_filename_without_.pdf>`
+
+Example:
+
+- `Final resume PDF basename: utkarsh_rawat_resume`
+
+If this field exists, the PDF export pipeline should write `<your_preferred_filename_without_.pdf>.pdf` into the same folder as the source `.docx` by default.
 
 Once those files exist, the agent can compare generated `.docx` output against the contributor's template and tune the generator accordingly.

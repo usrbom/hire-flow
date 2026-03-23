@@ -49,6 +49,7 @@ This file should include:
 - work authorization or visa details
 - location preferences
 - preferred base resume
+- preferred final resume PDF basename
 
 ## Optional local setup
 
@@ -85,6 +86,26 @@ Examples:
 - hyperlink display and target rules
 - section spacing expectations
 - single-page requirement
+
+## Contributor-specific PDF naming
+
+To set your default final resume PDF filename, add this field to:
+
+- `contributors/local-context/<name>.local.md`
+
+Field:
+
+- `Final resume PDF basename: <your_preferred_filename_without_.pdf>`
+
+Example:
+
+- `Final resume PDF basename: utkarsh_rawat_resume`
+
+When that field exists, PDF generation should default to:
+
+- `tailored/<Company>/<Role>/utkarsh_rawat_resume.pdf`
+
+in the same folder as the source `.docx`, unless an explicit output path is provided.
 
 ## Shared fallback files
 
