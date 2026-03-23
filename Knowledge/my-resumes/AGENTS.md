@@ -73,13 +73,8 @@ Use this default two-round workflow unless the user explicitly asks for a lighte
 ## Resume Constraints
 
 - Keep the final resume to one page unless the user explicitly asks for a longer document
-- Markdown-stage fit budget:
-  - maximum 230 characters per bullet
-  - target 9-11 work-experience bullets total
-  - hard maximum 12 work-experience bullets total
-  - maximum 9 lines in `Additional`
-  - maximum 1 project line in `Additional` by default
-  - `Interests` is mandatory and must remain in `Additional`
+- Use contributor-local fit and formatting rules when they exist.
+- Otherwise use conservative defaults that aim to keep the resume on one page before DOCX generation.
 - For work experience, only reorder existing bullets from the **selected** base resume file based on JD importance in the first pass
 - Trim lower-priority work-experience bullets in the first pass by removing bullets that are not important for the JD
 - Do not invent experience
@@ -95,8 +90,8 @@ Use this default two-round workflow unless the user explicitly asks for a lighte
   - reorder items by JD importance
   - reorder skills internally by JD relevance so the most relevant skills appear first
   - reorder courses internally by JD relevance so the most relevant courses appear first
-  - keep only one project line by default when multiple projects exist
-  - it is acceptable to compress the competition line to fit within two visual lines
+  - avoid redundant signals across work experience and `Additional`
+  - use contributor-local fit rules for project count, competition length, and other compaction choices when those rules exist
 - Keep `Skills` to no more than 2 lines
 - Keep `Courses` to 1 line
 - In `analysis.md`, start with:
@@ -144,13 +139,8 @@ Additional guidance:
 - Avoid overloading the resume with too many equally dense bullets
 - For internship roles, make sure the overall story feels calibrated to internship-level hiring rather than overshooting the level
 - If the draft risks exceeding one page, compact in this order:
-  - remove extra project lines beyond the single most relevant one
-  - shorten the competition bullet
-  - remove the lowest-priority non-interest item in `Additional`
-  - compress certifications if weakly relevant
-  - compress skills or courses wording
-  - reduce work-experience bullets toward the 9-11 target range
-  - preserve `Interests`
+  - follow contributor-local fit rules first when they exist
+  - then remove or compress the lowest-value non-core content while preserving JD fit and truthfulness
 
 ## File Priority
 

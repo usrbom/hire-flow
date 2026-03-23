@@ -83,11 +83,7 @@ When generated DOCX output does not match the contributor template:
 ## Shared formatting constraints
 
 - Final tailored resume outputs should remain one page unless the user explicitly asks otherwise.
-- Markdown should already respect the one-page budget before DOCX generation:
-  - maximum 230 characters per bullet
-  - target 9-11 work-experience bullets, hard maximum 12
-  - maximum 9 `Additional` lines
-  - maximum 1 project line in `Additional` by default
-  - `Interests` must remain present
+- Markdown should already respect the one-page budget before DOCX generation.
+- Contributor-local fit rules may define stricter or more specific limits for bullet length, project count, competition length, interests, and compaction order.
 - If a JD-aligned short descriptor is added next to `SERVICENOW`, keep it short enough that the right-side location such as `Hyderabad, India` does not wrap to the next line.
 - DOCX/PDF generation is a validation step for page fit, not the first place where overlength should be discovered.
