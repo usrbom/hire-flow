@@ -51,11 +51,17 @@ def infer_contributor() -> str | None:
     if not LOCAL_CONTEXT_DIR.exists():
         return None
 
-    candidates = sorted(
-        path.stem.removesuffix(".local")
-        for path in LOCAL_CONTEXT_DIR.glob("*.local.md")
-        if path.name != "RESUME_INDEX.local.md"
-    )
+    candidates: list[str] = []
+    for path in LOCAL_CONTEXT_DIR.glob("*.local.md"):
+        if path.name == "RESUME_INDEX.local.md":
+            continue
+        if not re.fullmatch(r"[^.]+\.local\.md", path.name):
+            continue
+        if not read_pdf_basename(path):
+            continue
+        candidates.append(path.stem.removesuffix(".local"))
+
+    candidates.sort()
     if len(candidates) == 1:
         return candidates[0]
     return None
