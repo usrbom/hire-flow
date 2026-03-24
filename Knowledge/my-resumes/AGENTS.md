@@ -127,6 +127,13 @@ Use this default workflow unless the user explicitly asks for a lighter pass:
 - `Truth Guard`: re-check only newly introduced or changed claims
 - revise once more and stop by default
 
+### Post-Render Validation
+
+- after DOCX generation, treat the actual rendered page appearance as a final validation signal, not just the Markdown budget
+- if the DOCX or exported PDF still looks materially underfilled, send the resume back through the iterative re-expansion loop
+- do not rely only on Markdown bullet counts or character limits to judge balance
+- use rendered appearance to make the final call on whether the page looks too sparse
+
 ### Interaction Rules
 
 - Truth wins over optimization
@@ -138,6 +145,7 @@ Use this default workflow unless the user explicitly asks for a lighter pass:
 - Limit each pass or final review to the highest-value changes; avoid endless polishing loops
 - Enforce page-fit constraints during Markdown generation before DOCX generation
 - Treat spare one-page space as something to use judgment on, not something to always minimize or always fill
+- Treat post-render white space as a workflow signal: if the actual DOCX/PDF still looks too sparse, iterate again
 
 ## Resume Constraints
 
@@ -243,6 +251,7 @@ Additional guidance:
   - then consider one stronger `Additional` item if it improves role fit
   - after each addition, re-evaluate whether another iteration is still quality-improving
   - stop once the resume looks balanced; do not optimize for zero white space
+- After DOCX generation, re-check whether the actual rendered page still looks underfilled; if it does, continue the same judged re-expansion logic until the page looks balanced or the next addition is no longer worth it
 
 ## File Priority
 

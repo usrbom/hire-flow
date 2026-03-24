@@ -87,3 +87,4 @@ When generated DOCX output does not match the contributor template:
 - Contributor-local fit rules may define stricter or more specific limits for bullet length, project count, competition length, interests, and compaction order.
 - If a JD-aligned short descriptor is added next to `SERVICENOW`, keep it short enough that the right-side location such as `Hyderabad, India` does not wrap to the next line.
 - DOCX/PDF generation is a validation step for page fit, not the first place where overlength should be discovered.
+- DOCX/PDF generation is also the final validation step for underfilled pages: if the rendered document still looks materially too sparse, the resume should go back through the judged re-expansion loop rather than being accepted just because the Markdown budget looked balanced.
