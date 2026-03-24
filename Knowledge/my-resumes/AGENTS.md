@@ -127,6 +127,24 @@ Use this default workflow unless the user explicitly asks for a lighter pass:
 - `Truth Guard`: re-check only newly introduced or changed claims
 - revise once more and stop by default
 
+### Narrative Gap Check
+
+- `HR Screener` must explicitly identify:
+  - the target role persona the JD wants
+  - the current persona the resume projects
+  - the top narrative gaps between the two
+- for each major gap, classify the fix as one of:
+  - fix now with reordering
+  - fix now with supported rewrite
+  - fix now with re-expansion
+  - needs user confirmation
+  - cannot fix honestly
+- use this step to catch issues such as:
+  - enterprise tone versus consumer-app tone
+  - backend-heavy tone versus UX or customer-experience tone
+  - underused company or domain language
+  - missing but important role-language such as onboarding, user journey, usability, GTM, or roadmap
+
 ### Post-Render Validation
 
 - after DOCX generation, treat the actual rendered page appearance as a final validation signal, not just the Markdown budget
@@ -204,6 +222,17 @@ Use this default workflow unless the user explicitly asks for a lighter pass:
   - `Pass 2: Selective Micro-Rewrite`
   - `Pass 3: Truth + Fit Validation`
   - `Final Review`
+- After `Final Review`, include a required `Narrative Gap Check` section.
+- In `Narrative Gap Check`:
+  - state the `Target Persona`
+  - state the `Current Resume Persona`
+  - list the `Top Narrative Gaps`
+  - add a `Gap-to-Fix Mapping` that labels each gap as:
+    - `Fix now with reordering`
+    - `Fix now with supported rewrite`
+    - `Fix now with re-expansion`
+    - `Needs user confirmation`
+    - `Cannot fix honestly`
 - End `review-loop.md` with a required `Improvement Opportunities` section.
 - In `Improvement Opportunities`:
   - include only the highest-value remaining improvements, usually 3 to 6 items
