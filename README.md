@@ -1,4 +1,4 @@
-# Build AI Product Sense
+# HireFlow
 
 This repository is a personal career-operations workspace centered on internship and early-career applications in product, product marketing, TPM, program management, and adjacent roles.
 
