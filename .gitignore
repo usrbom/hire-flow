@@ -31,6 +31,10 @@ contributors/local-context/*.expected.local.pdf
 contributors/local-context/*.anderson-style.local.*
 contributors/local-context/*style-guide.local.md
 
+# Personal goal and task tracking
+GOALS.md
+Tasks/
+
 # Private reference materials
 Knowledge/reference-resumes/*
 !Knowledge/reference-resumes/README.md
