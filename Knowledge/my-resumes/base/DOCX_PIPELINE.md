@@ -32,18 +32,26 @@ python3 scripts/render_resume_docx.py tailored/Nasuni/MBA_Product_Marketing_Inte
 
 ## Expected output
 
-By default the generator writes a `.docx` into the same folder as the Markdown source:
+By default the generator can write a `.docx` into the same folder as the Markdown source:
 
 ```text
 tailored/<Company>/<Role>/resume-tailored.docx
 ```
+
+For final resume generation, the preferred output naming convention is:
+
+```text
+tailored/<Company>/<Role>/<Company>_<Role>.docx
+```
+
+Use filesystem-safe names that match the tailored folder naming style.
 
 ## Final PDF step
 
 After generating the `.docx`, export the final submission PDF with:
 
 ```bash
-python3 scripts/render_docx_pdf.py tailored/<Company>/<Role>/resume-tailored.docx
+python3 scripts/render_docx_pdf.py tailored/<Company>/<Role>/<Company>_<Role>.docx
 ```
 
 This writes:

@@ -19,13 +19,14 @@ def run_osascript(docx_path: Path, pdf_path: Path) -> None:
 on run
   set inputPath to POSIX file "{docx_path}" as alias
   set outputPath to "{pdf_path}"
-  tell application "Microsoft Word"
-    activate
-    open inputPath
-    set docRef to active document
-    save as docRef file name outputPath file format format PDF
-    close docRef saving no
-  end tell
+  using terms from application "Microsoft Word"
+    tell application "Microsoft Word"
+      activate
+      open inputPath
+      save as active document file name outputPath file format format PDF
+      close active document saving no
+    end tell
+  end using terms from
 end run
 '''
     subprocess.run(["osascript", "-e", script], check=True)

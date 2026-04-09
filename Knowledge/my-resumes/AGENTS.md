@@ -12,6 +12,17 @@ This directory is for internship resume tailoring.
   - contributor-local Anderson-style guide or similar bullet-style local notes
 - Treat `archive/old-variants/` as fallback reference only
 
+## Session File Caching
+
+- If any of the following files were already read earlier in the current conversation session, **do not re-read them** — use the version already in context:
+  - `contributors/local-context/<name>.local.md`
+  - `contributors/local-context/<name>.story-bank.local.md`
+  - contributor-local Anderson-style guide
+  - the selected base resume (e.g. `base/Tech_8.md`)
+  - `base/RESUME_INDEX.md`
+- Only re-read a file if the user indicates it has changed, or if it was not read in this session.
+- This rule applies across multiple `Tailor:` commands within the same conversation.
+
 ## Choosing the base resume
 
 - **When:** After the index files are read and the **job description** is available (from the user message or `tailored/.../jd.md`).
@@ -23,9 +34,13 @@ This directory is for internship resume tailoring.
 
 ## User Workflow
 
-- The user will paste the full job description in chat
-- If the user starts the message with `Tailor:`, treat that as the trigger for this workflow
-- Extract:
+There are two trigger modes with different output sets and review depth:
+
+### Default Mode — `Tailor:`
+
+Use when the user starts the message with `Tailor:` (no qualifier).
+
+- Extract from the JD:
   - company name
   - role title
   - F-1 visa applicability signals
@@ -36,17 +51,39 @@ This directory is for internship resume tailoring.
   - main themes for prioritizing bullets
 - **Select the best-matching base resume from `base/`** (see *Choosing the base resume*), then create outputs from that file
 - Create a folder at `tailored/<Company_Name>/<Role_Name>/` at the repository root
-- Save the pasted JD as `jd.md`
-- Save your extraction and prioritization logic as `analysis.md` (include base resume choice and rationale first)
-- Save the two-round critique and revision process as `review-loop.md`
-- Save a change log as `diff.md` that compares the selected base resume against the tailored resume and explains why each change improves fit for the JD
-- Save the tailored resume as `resume-tailored.md` only if there is no material eligibility concern, or if the user explicitly asks to proceed despite the concern
-- When Word output is requested, generate `resume-tailored.docx` using `scripts/render_resume_docx.py` and prefer a contributor-specific local template over `base/template.docx` when one exists
+- **Required output files (default mode):**
+  - `jd.md` — the pasted job description
+  - `analysis.md` — base resume choice, eligibility assessment, fit score, bullet selection rationale
+  - `resume-tailored.md` — the tailored resume (only if no material eligibility concern, or user confirms)
+- Run **Pass 1 (Structure)** and a **light truth check** only — no full persona review loop, no Pass 2 micro-rewrite, no Narrative Gap Check
+- After generating the resume, ask the user if they want a second pass that modifies bullets further
+- `review-loop.md` and `diff.md` are **not generated** in default mode unless the user requests them
+
+### Full Review Mode — `Tailor (full review):`
+
+Use when the user starts the message with `Tailor (full review):`.
+
+- Follow all steps in the Default Mode above, **plus:**
+- Run the complete Review Loop (Pass 1 → Pass 2 → Pass 3 → Narrative Gap Check → Domain Resonance Check → Final Review)
+- **Required output files (full review mode):**
+  - `jd.md`
+  - `analysis.md`
+  - `review-loop.md` — full multi-pass critique and revision log
+  - `diff.md` — change log comparing base resume to tailored resume
+  - `resume-tailored.md`
+
+### Shared Rules (both modes)
+
+- When Word output is requested, generate a company-and-role-named `.docx` using `scripts/render_resume_docx.py` and prefer a contributor-specific local template over `base/template.docx` when one exists
+  - default naming convention: `tailored/<Company>/<Role>/<Company>_<Role>.docx`
+  - use filesystem-safe names that match the tailored folder naming style
 - When submit-ready PDF output is requested, export `resume-tailored.docx` using the Word PDF pipeline in `base/PDF_PIPELINE.md`. If the contributor's local context defines `Final resume PDF basename`, use that filename by default in the same tailored folder.
 
 ## Review Loop
 
-Use this default workflow unless the user explicitly asks for a lighter pass:
+**This section applies only in `Tailor (full review):` mode**, or when the user explicitly requests a full review pass after an initial tailoring. In default `Tailor:` mode, skip this section entirely and run Pass 1 + light truth check only.
+
+Use this workflow in full review mode:
 
 ### Persona Mindsets
 
@@ -90,6 +127,10 @@ Use this default workflow unless the user explicitly asks for a lighter pass:
   - better metric placement
   - JD-aligned terminology
   - tighter business or domain framing
+- while editing each bullet, enforce contributor-local length rules immediately instead of waiting for a final cleanup pass:
+  - standard bullets must stay at or under 230 characters when a contributor-local rule says `Standard bullet max length: 230 characters`
+  - competition bullets may exceed the standard cap only when a contributor-local exception allows it
+  - if a rewrite improves fit but breaks the character cap, trim it in the same editing pass before moving on
 - skip rewrites for bullets that are already strong, already aligned, or would become riskier or stiffer after editing
 - if a contributor-local Anderson-style guide exists, use it to shape bullet construction during this pass
 
@@ -99,6 +140,7 @@ Use this default workflow unless the user explicitly asks for a lighter pass:
 - `Truth Guard`: check changed bullets for overclaiming, unsupported skills, overstated ownership, prototype-vs-production confusion, and metrics that need tighter scope
 - revise the resume based on feedback that survives truth-checking
 - re-check page fit and contributor-local compaction rules before DOCX generation
+- during this page-fit check, use recent rendered DOCX calibration to estimate whether the draft is likely to leave more than about 2 to 3 blank lines at the bottom of the final Word document
 - if the draft appears materially underfilled while still fitting on one page, consider a judged re-expansion pass before finalizing
 
 ### Optional Re-Expansion Pass
@@ -106,6 +148,20 @@ Use this default workflow unless the user explicitly asks for a lighter pass:
 - use this only when the resume appears meaningfully underfilled and adding relevant content would improve overall quality
 - do not try to fill all available white space
 - treat this as an iterative judgment loop, not a one-shot add-back
+- use recent rendered DOCX files in the same template as calibration references when estimating page fill from Markdown
+- current calibration reference:
+  - the Gen / MoneyLion marketplace resume left about 5 blank lines in the rendered Word document
+  - that draft had 9 standard experience bullets mostly in the 176 to 212 character range
+  - it also had 1 long competition bullet at 317 characters, 1 project bullet at 181 characters, and compact `Skills`, `Courses`, and `Interests` lines
+  - practical takeaway: this content density is still slightly underfilled in the current template
+- future estimation heuristic from that sample:
+  - standard bullets around 175 to 210 characters usually behave like dense 2-line bullets in the current Word template
+  - a long competition bullet around 300 to 370 characters usually behaves like a 3-line exception
+  - if a draft with roughly the Gen density still shows about 5 blank lines, add back about 2 more lines of high-value content to target a final gap of 2 to 3 lines
+  - the safest way to add those 2 lines is usually one more strong standard bullet or two modest bullet expansions of about 20 to 35 characters each
+- target state for modification and finalization:
+  - aim for no more than about 2 to 3 visible blank lines at the bottom of the rendered Word document
+  - use Markdown-only estimates as a drafting heuristic, but treat the rendered DOCX as the final authority whenever it is available
 - make a judgment call after each iteration:
   - if remaining white space is small, leave the resume as-is
   - if remaining white space is clearly excessive, add back or slightly expand the highest-value supported content, then re-evaluate again
@@ -144,6 +200,39 @@ Use this default workflow unless the user explicitly asks for a lighter pass:
   - backend-heavy tone versus UX or customer-experience tone
   - underused company or domain language
   - missing but important role-language such as onboarding, user journey, usability, GTM, or roadmap
+
+### Domain Resonance Check
+
+- Before final compaction and again before DOCX generation, explicitly ask:
+  - `Is there any domain-aligned story that materially improves company or industry fit even if it is not the strongest direct functional match?`
+  - `Would removing it make the resume more generic for this company?`
+- Run this check especially for roles in:
+  - healthcare
+  - education / edtech
+  - cybersecurity
+  - fintech / payments
+  - developer tools
+  - infrastructure / cloud
+- For each domain-aligned story considered, classify it as:
+  - `Must preserve`
+  - `Nice to preserve`
+  - `Safe to cut`
+- A domain-aligned story should be marked `Must preserve` when all of the following are true:
+  - it is truthful and supportable
+  - it materially strengthens company or industry resonance
+  - removing it would make the resume noticeably more generic
+- Domain resonance can outweigh a weaker direct functional match when the story:
+  - maps clearly to the target company's problem space
+  - differentiates the candidate from a generic PM or technical resume
+  - still fits on one page without forcing filler elsewhere
+- Do not cut a `Must preserve` domain story unless:
+  - it creates a truth risk
+  - it creates a severe page-fit problem
+  - a stronger domain-aligned story already covers the same signal
+- In `review-loop.md`, explicitly note:
+  - `Domain-specific stories preserved`
+  - `Domain-specific stories removed`
+  - a one-line reason for each meaningful preserve/remove decision
 
 ### Post-Render Validation
 
@@ -188,6 +277,7 @@ Use this default workflow unless the user explicitly asks for a lighter pass:
 - Before removing bullets, check for domain or industry alignment signals that may be uniquely valuable even if they are not the most direct functional match
 - Preserve distinctive bullets that create strong industry resonance for the target company or user story, such as healthcare, security, AI, or developer-workflow alignment
 - If the resume appears too sparse after compaction, selectively re-add or expand relevant material when that improves quality more than it harms concision
+- Treat contributor-local bullet-length rules as hard constraints during drafting, micro-rewrite, and re-expansion passes rather than as optional post-processing checks
 - Produce the final tailored resume in Markdown
 - It is acceptable to add a very short JD-aligned descriptor next to `SERVICENOW` when it materially improves fit, but it must remain short enough that `Hyderabad, India` stays on the same line in DOCX/PDF output
 - In the `Additional` section:

@@ -4,7 +4,7 @@ This repository can generate a submit-ready PDF from a generated resume `.docx` 
 
 ## Source of truth
 
-- Content source for final PDF export: `resume-tailored.docx`
+- Content source for final PDF export: the final company-and-role-named `.docx`
 - Shared fallback DOCX template: `Knowledge/my-resumes/base/template.docx`
 - Contributor-local override: `contributors/local-context/<name>.resume-template.local.docx`
 
@@ -19,7 +19,7 @@ python3 scripts/render_docx_pdf.py <path-to-resume-docx>
 Example:
 
 ```bash
-python3 scripts/render_docx_pdf.py tailored/Nasuni/MBA_Product_Marketing_Intern/resume-tailored.docx
+python3 scripts/render_docx_pdf.py tailored/Nasuni/MBA_Product_Marketing_Intern/Nasuni_MBA_Product_Marketing_Intern.docx
 ```
 
 This will generate:
@@ -62,6 +62,7 @@ Standard expected files per completed application:
 - `analysis.md`
 - `diff.md`
 - `resume-tailored.md`
+- `<Company>_<Role>.docx` for the final Word submission file
 - `resume-tailored.pdf` when a submission PDF has been generated locally
 
 The exact PDF filename may be contributor-specific when a local context file defines a final resume PDF basename.
